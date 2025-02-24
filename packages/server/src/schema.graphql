@@ -1,0 +1,216 @@
+"""
+Global query object.
+"""
+type Query {
+  """
+  Get an agent by ID.
+  """
+  agent(id: ID!): Agent
+
+  """
+  Get all agents.
+  """
+  agents(sort: [AgentsSort!], filter: AgentsFilter): [Agent!]!
+}
+
+"""
+Global mutation object.
+"""
+type Mutation {
+  """
+  Add an agent.
+  """
+  addAgent(input: AddAgentInput!): Agent!
+
+  """
+  Edit an agent.
+  """
+  editAgent(input: EditAgentInput!): Agent!
+
+  """
+  Delete an agent.
+  """
+  deleteAgent(input: DeleteAgentInput!): Boolean!
+}
+
+"""
+Input used to sort agents.
+"""
+input AgentsSort {
+  """
+  The field to sort by.
+  """
+  sortBy: AgentsSortBy!
+  """
+  The order to sort by.
+  """
+  sortOrder: SortOrder!
+}
+
+"""
+The order to sort by.
+"""
+enum SortOrder {
+  """
+  Ascending order.
+  """
+  ASC
+  """
+  Descending order.
+  """
+  DESC
+}
+
+"""
+The field to sort by.
+"""
+enum AgentsSortBy {
+  """
+  The first name of the agent.
+  """
+  FIRST_NAME
+  """
+  The last name of the agent.
+  """
+  LAST_NAME
+  """
+  The email of the agent.
+  """
+  EMAIL
+  """
+  The status of the agent.
+  """
+  STATUS
+}
+
+"""
+Input used to filter agents.
+"""
+input AgentsFilter {
+  """
+  The first name of the agent.
+  """
+  firstName: String
+  """
+  A regex to match the first name of the agent.
+  """
+  firstNameRegex: String
+  """
+  The last name of the agent.
+  """
+  lastName: String
+  """
+  A regex to match the last name of the agent.
+  """
+  lastNameRegex: String
+  """
+  The email of the agent.
+  """
+  email: String
+  """
+  A regex to match the email of the agent.
+  """
+  emailRegex: String
+  """
+  The status of the agent.
+  """
+  status: AgentStatus
+}
+
+"""
+Input used to delete an agent.
+"""
+input DeleteAgentInput {
+  """
+  The ID of the agent to delete.
+  """
+  id: ID!
+}
+
+"""
+Input used to edit an agent.
+"""
+input EditAgentInput {
+  """
+  The ID of the agent to edit.
+  """
+  id: ID!
+  """
+  The first name of the agent.
+  """
+  firstName: String
+  """
+  The last name of the agent.
+  """
+  lastName: String
+  """
+  The email of the agent.
+  """
+  email: String
+  """
+  The status of the agent.
+  """
+  status: AgentStatus!
+}
+
+"""
+The status of the agent.
+"""
+enum AgentStatus {
+  """
+  The agent is active.
+  """
+  ACTIVE
+  """
+  The agent is inactive.
+  """
+  INACTIVE
+}
+
+"""
+Input used to add an agent.
+"""
+input AddAgentInput {
+  """
+  The first name of the agent.
+  """
+  firstName: String!
+  """
+  The last name of the agent.
+  """
+  lastName: String!
+  """
+  The email of the agent.
+  """
+  email: String
+  """
+  The status of the agent.
+  """
+  status: AgentStatus
+}
+
+"""
+An object representing the agent.
+"""
+type Agent {
+  """
+  The ID of the agent.
+  """
+  id: ID!
+  """
+  The first name of the agent.
+  """
+  firstName: String!
+  """
+  The last name of the agent.
+  """
+  lastName: String!
+  """
+  The email of the agent.
+  """
+  email: String
+  """
+  The status of the agent.
+  """
+  status: AgentStatus!
+}

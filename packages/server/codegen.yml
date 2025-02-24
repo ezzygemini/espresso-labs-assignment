@@ -1,0 +1,8 @@
+generates:
+  ./src/__generated__/types.ts:
+    schema:
+      - "./src/schema.graphql"
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-apollo-client-helpers

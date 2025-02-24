@@ -1,0 +1,102 @@
+html {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  --primary: navy;
+  --primary-reversed: lightblue;
+  --secondary: limegreen;
+  --secondary-reversed: limegreen;
+  --darkest: #333;
+  --darkest-rgb: 51, 51, 51;
+  --darker: #666;
+  --darker-rgb: 102, 102, 102;
+  --lightest: #eee;
+  --lightest-rgb: 238, 238, 238;
+  --lighter: #ddd;
+  --lighter-rgb: 221, 221, 221;
+}
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--lightest);
+  background-color: var(--darkest);
+
+  @media (prefers-color-scheme: light) {
+    color: var(--darkest);
+    background-color: var(--lightest);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  width: 100%;
+    border: rgb(var(--lightest-rgb), 0.25) 1px dashed;
+}
+
+input, button, select {
+  padding: 0.5em;
+  border-radius: 0.25em;
+  outline-color: var(--primary);
+}
+
+input {
+  border: var(--lightest) 1px solid;
+  color: var(--lightest);
+  background-color: rgba(var(--darkest-rgb), 0.5);
+
+  @media (prefers-color-scheme: light) {
+    color: var(--darkest);
+    border-color: var(--darkest);
+    background-color: rgba(var(--lightest-rgb), 0.5);
+  }
+}
+
+button {
+  border: var(--lightest) 1px solid;
+  color: var(--darkest);
+  background-color: var(--lighter);
+  transition: background-color 100ms ease;
+
+  &:disabled {
+    opacity: 0.25;
+  }
+
+  &:hover {
+    background-color: var(--lightest);
+  }
+
+  &:active {
+    background-color: var(--lightest);
+    box-shadow: 0.1rem 0.1rem 0.5rem inset rgba(0, 0, 0, 0.25);
+    text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.25);
+  }
+
+  @media (prefers-color-scheme: light) {
+    color: var(--lightest);
+    border-color: var(--darkest);
+    background-color: var(--darker);
+
+    &:hover {
+      background-color: var(--darkest);
+    }
+
+    &:active {
+      background-color: var(--darkest);
+      box-shadow: 0.1rem 0.1rem 0.5rem inset rgba(0, 0, 0, 0.5);
+      text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
+    }
+  }
+}

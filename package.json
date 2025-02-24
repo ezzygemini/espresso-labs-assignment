@@ -1,0 +1,25 @@
+{
+  "name": "@ezzygemini/espresso-labs-assignment",
+  "version": "1.0.0",
+  "description": "Espresso Labs Assignment",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "npm run dev -w @ezzygemini/espresso-labs-assignment-client",
+    "dev:server": "npm run dev -w @ezzygemini/espresso-labs-assignment-server",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces"
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "author": "Moises Romero",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10"
+  }
+}
